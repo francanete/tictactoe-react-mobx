@@ -24,6 +24,17 @@ const Game = observer(() => {
     store.setTurn(!store.xIsNext);
   };
 
+  const renderMoves = () => {
+    return (
+      <button
+        className="start"
+        onClick={() => store.setBoard(Array(0).fill(null))}
+      >
+        Reset Game
+      </button>
+    );
+  };
+
   return (
     <>
       <h1>tillit - Tic Tac Toe</h1>
@@ -33,6 +44,7 @@ const Game = observer(() => {
           : winner
           ? "Winner: " + winner
           : "Next player :" + (store.xIsNext ? "X" : "O")}
+        {!winner ? (store.board.length !== 0 ? renderMoves() : "") : ""}
         {store.board.length === 0 ? <SetBoard /> : ""}
         {winner ? <SetBoard /> : ""}
       </h3>
