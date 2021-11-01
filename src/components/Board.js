@@ -4,11 +4,7 @@ import { observer } from "mobx-react";
 
 import store from "../store";
 
-console.log(store.board);
-
 let classBoard = "";
-
-console.log(classBoard);
 
 const Board = observer(({ squares, onClick }) => {
   if (store.board.length === 9) {
