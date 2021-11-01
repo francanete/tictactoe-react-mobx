@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { calculateWinner } from "../calculateWinner";
 import Board from "./Board";
+import { observer } from "mobx-react";
 
-export default function Game() {
-  const [board, setBoard] = useState(Array(9).fill(null));
-  const [xIsNext, setXisNext] = useState(true);
-  const winner = calculateWinner(board);
+import store from "../store";
+
+const Game = observer(() => {
+  const winner = calculateWinner(store.board);
 
   const handleClick = (i) => {
-    const boardCopy = [...board];
-    if (winner || boardCopy[i]) return;
-    boardCopy[i] = xIsNext ? "X" : "O";
-    setBoard(boardCopy);
-    setXisNext(!xIsNext);
+    if (winner || store.board[i]) return;
+    store.board[i] = store.xIsNext ? "X" : "O";
+    store.setBoard(store.board);
+    store.setTurn(!store.xIsNext);
   };
 
   const renderMoves = () => {
     return (
-      <button className="start" onClick={() => setBoard(Array(9).fill(null))}>
+      <button
+        className="start"
+        onClick={() => store.setBoard(Array(9).fill(null))}
+      >
         {!winner ? "Start Game" : "Play Again"}
       </button>
     );
@@ -27,10 +30,19 @@ export default function Game() {
     <>
       <h1>tillit - Tic Tac Toe</h1>
       <h3>
-        {winner ? "Winner: " + winner : "Next player :" + (xIsNext ? "X" : "O")}
+        {winner
+          ? "Winner: " + winner
+          : "Next player :" + (store.xIsNext ? "X" : "O")}
         <div>{renderMoves()}</div>
       </h3>
-      <Board squares={board} onClick={handleClick} />
+      {/* {!winner ? (
+        <Board onClick={handleClick} />
+      ) : (
+        "There is a winner: " + winner
+      )} */}
+      <Board onClick={handleClick} />
     </>
   );
-}
+});
+
+export default Game;

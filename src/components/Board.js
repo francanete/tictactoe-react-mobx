@@ -1,12 +1,19 @@
 import React from "react";
 import Square from "./Square";
+import { observer } from "mobx-react";
 
-export default function Board({ squares, onClick }) {
+import store from "../store";
+
+console.log(store.board);
+
+const Board = observer(({ squares, onClick }) => {
   return (
     <div className="board">
-      {squares.map((square, i) => (
+      {store.board.map((square, i) => (
         <Square key={i} value={square} onClick={() => onClick(i)} />
       ))}
     </div>
   );
-}
+});
+
+export default Board;
