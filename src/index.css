@@ -33,6 +33,18 @@ h3 {
   gap: 1rem;
 }
 
+.board25 {
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+  width: 500px;
+  height: 500px;
+  gap: 1rem;
+}
+
+.boardChoice {
+  margin-top: 5rem;
+}
+
 .squares {
   background: linear-gradient(
     323.38deg,
@@ -91,6 +103,12 @@ li {
 
 @media (max-width: 420px) {
   .board {
+    width: 300px;
+    height: 300px;
+    gap: 0.5rem;
+  }
+
+  .board25 {
     width: 300px;
     height: 300px;
     gap: 0.5rem;

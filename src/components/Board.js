@@ -6,9 +6,18 @@ import store from "../store";
 
 console.log(store.board);
 
+let classBoard = "";
+
+console.log(classBoard);
+
 const Board = observer(({ squares, onClick }) => {
+  if (store.board.length === 9) {
+    classBoard = "board";
+  } else if (store.board.length === 25) {
+    classBoard = "board25";
+  }
   return (
-    <div className="board">
+    <div className={classBoard}>
       {store.board.map((square, i) => (
         <Square key={i} value={square} onClick={() => onClick(i)} />
       ))}

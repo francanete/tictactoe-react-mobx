@@ -1,7 +1,8 @@
 import { makeAutoObservable } from "mobx";
 
 class Store {
-  board = Array(9).fill("");
+  boardSize = "";
+  board = Array(0).fill("");
   xIsNext = true;
 
   constructor() {
