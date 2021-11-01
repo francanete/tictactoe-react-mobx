@@ -6,7 +6,7 @@ In either case, the game will automatically find the winner and prompt it on the
 
 After the game is over, players will have the option to replay and choose between a 9 or 25 square board.
 
-### `npm start`
+### starting the game: `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
