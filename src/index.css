@@ -25,6 +25,10 @@ h3 {
   text-align: center;
 }
 
+.winnerWrapper {
+  font-size: 3rem;
+}
+
 .board {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);

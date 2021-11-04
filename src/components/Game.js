@@ -38,12 +38,16 @@ const Game = observer(() => {
   return (
     <>
       <h1>Tic Tac Toe</h1>
+      <div className="winnerWrapper">
+        <h3>
+          {store.board.length === 0
+            ? ""
+            : winner
+            ? "Winner: " + winner
+            : "Next player :" + (store.xIsNext ? "X" : "O")}
+        </h3>
+      </div>
       <h3>
-        {store.board.length === 0
-          ? ""
-          : winner
-          ? "Winner: " + winner
-          : "Next player :" + (store.xIsNext ? "X" : "O")}
         {!winner ? (store.board.length !== 0 ? renderMoves() : "") : ""}
         {store.board.length === 0 ? <SetBoard /> : ""}
         {winner ? <SetBoard /> : ""}

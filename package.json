@@ -1,5 +1,5 @@
 {
-  "name": "tillit_game",
+  "name": "tictactoe_game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

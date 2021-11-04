@@ -1,4 +1,4 @@
-# tillit - Tic Tac Toe
+# React - Tic Tac Toe
 
 On this project, 2 players can interact with the classic game Tic Tac Toe. Players can choose the size of the board, 9 squares or 25 squares for the adventurers.
 
