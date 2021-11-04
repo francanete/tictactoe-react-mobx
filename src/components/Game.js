@@ -37,7 +37,7 @@ const Game = observer(() => {
 
   return (
     <>
-      <h1>tillit - Tic Tac Toe</h1>
+      <h1>Tic Tac Toe</h1>
       <h3>
         {store.board.length === 0
           ? ""
