@@ -46,7 +46,7 @@ h3 {
 }
 
 .boardChoice {
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
 }
 
 .squares {
@@ -118,6 +118,9 @@ li {
     gap: 0.5rem;
   }
   .squares {
+    font-size: 2rem;
+  }
+  .winnerWrapper {
     font-size: 2rem;
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { calculateWinner } from "../calculateWinner";
 import { calculateWinner25 } from "../calculateWinner25";
+import Confetti from "react-dom-confetti";
 
 import Board from "./Board";
 import { observer } from "mobx-react";
@@ -35,17 +36,33 @@ const Game = observer(() => {
     );
   };
 
+  const config = {
+    angle: "166",
+    spread: 360,
+    startVelocity: 40,
+    elementCount: "149",
+    dragFriction: 0.12,
+    duration: "6230",
+    stagger: 3,
+    width: "22px",
+    height: "23px",
+    perspective: "500px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+  };
+
   return (
     <>
       <h1>Tic Tac Toe</h1>
       <div className="winnerWrapper">
         <h3>
+          {winner && "Winner: " + winner}
           {store.board.length === 0
             ? ""
             : winner
-            ? "Winner: " + winner
+            ? ""
             : "Next player :" + (store.xIsNext ? "X" : "O")}
         </h3>
+        <Confetti active={winner} config={config} />
       </div>
       <h3>
         {!winner ? (store.board.length !== 0 ? renderMoves() : "") : ""}
